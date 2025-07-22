@@ -60,7 +60,7 @@ BERT is pre-trained using two novel unsupervised tasks:
 
 The MLM objective involves randomly masking some of the tokens from the input, and the model's task is to predict the original vocabulary ID of the masked word based only on its context. The authors mask 15% of all WordPiece tokens in each sequence at random, predicting only the masked words rather than reconstructing the entire input.
 
-**Addressing the [MASK] token mismatch:**
+**Addressing the `[MASK]` token mismatch:**
 To mitigate the pre-training/fine-tuning mismatch (where `[MASK]` tokens do not appear during fine-tuning), a clever strategy is employed:
 When a token position is chosen for masking (15% of tokens):
 * **80% of the time:** The chosen token is replaced with the `[MASK]` token.
@@ -85,3 +85,9 @@ The original BERT models were pre-trained on a massive amount of text data:
 ## Getting Started
 
 [Add instructions on how to run your code, e.g., installation, data preparation, training, etc.]
+
+## References
+* **BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding**
+    * Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova
+    * Google AI Language
+    * [arXiv:1810.04805](https://arxiv.org/abs/1810.04805)
