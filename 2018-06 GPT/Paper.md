@@ -41,6 +41,16 @@ The authors of the GPT paper chose a **Decoder-only Transformer architecture**. 
 * **Max Learning Rate:** 2.5e-4 (Learning rate was increased linearly from zero over the first 2000 updates and then annealed to 0 using a cosine schedule.)
 * **Positional Embeddings:** Learned position embeddings are used instead of the sinusoidal version proposed in the original Transformer work.
 
+### Our Implemented Model:
+* **Number of Decoder-only Transformer Blocks (L):** 
+* **Number of Dimensions of Embedding Vector:** 
+* **Hidden Dimensions of Feed-Forward Network:** 
+* **Number of Self-Attention Heads (A):** 
+* **Optimizer:** 
+* **Activation Function:** 
+* **Max Learning Rate:** 
+* **Positional Embeddings:** 
+
 ## Input Representation
 
 Raw text is converted into tokens using **Byte-pair Encoding (BPE)**. These tokens are then converted into embeddings, and positional embeddings are added to them to form the final input representation for the decoder-only blocks.

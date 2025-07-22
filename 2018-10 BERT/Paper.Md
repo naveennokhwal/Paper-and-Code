@@ -30,10 +30,10 @@ BERT's core architecture is a multi-layer bidirectional Transformer Encoder. The
 
 For demonstration and learning purposes, our code implements and trains a much smaller version of BERT:
 
-* Number of Transformer Blocks (L): [FILL_IN_L_VALUE]
-* Hidden Size (H): [FILL_IN_H_VALUE]
-* Number of Self-Attention Heads (A): [FILL_IN_A_VALUE]
-* Total Parameters: [FILL_IN_TOTAL_PARAMETERS]
+* Number of Transformer Blocks (L): 
+* Hidden Size (H): 
+* Number of Self-Attention Heads (A): 
+* Total Parameters: 
 
 ## Key Concepts and Input Representation
 
