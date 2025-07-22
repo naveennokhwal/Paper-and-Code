@@ -6,7 +6,8 @@ from Model import EncoderOnlyModel
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load dataset
-with open("dataset/input.txt", "r", encoding="utf-8") as f:
+DATASET_PATH = None # Add path to your dataset
+with open(DATASET_PATH, "r", encoding="utf-8") as f:
     text = f.read()
 
 # tokenization

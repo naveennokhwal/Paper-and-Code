@@ -3,8 +3,8 @@ import torch
 from model import DecoderOnlyModel
 
 #import file 
-data_path = r'dataset\input.txt'
-with open (data_path, 'r', encoding='utf-8') as f:
+DATA_PATH = None # add path to your dataset
+with open (DATA_PATH, 'r', encoding='utf-8') as f:
   text = f.read()
 
 print("first 100 characters of data: ")
