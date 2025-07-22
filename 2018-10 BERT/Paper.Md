@@ -26,9 +26,9 @@ BERT's core architecture is a multi-layer bidirectional Transformer Encoder. The
     * Number of Self-Attention Heads (A): 16
     * Total Parameters: 340M
 
-### Our Implemented Model
+### My Implemented Model
 
-For demonstration and learning purposes, our code implements and trains a much smaller version of BERT:
+For demonstration and learning purposes, my code implements and trains a much smaller version of BERT:
 
 * Number of Transformer Blocks (L): 
 * Hidden Size (H): 
@@ -50,7 +50,7 @@ For a given token, its input representation is constructed by summing three type
 * **`[CLS]`:** This is a special classification token appended to the beginning of every input sequence. The final hidden state corresponding to this token is used as the aggregate sequence representation for classification tasks.
 * **`[SEP]`:** Used to separate sentence pairs when they are packed together into a single sequence. A learned embedding is also added to every token indicating whether it belongs to sentence A or sentence B.
 
-**Note on our code:** In our implementation, we primarily use single sentences as input, so the `[SEP]` token and segment embeddings for differentiating sentences are not utilized.
+**Note on my code:** In my implementation, I primarily use single sentences as input, so the `[SEP]` token and segment embeddings for differentiating sentences are not utilized.
 
 ## Pre-training Objectives
 
@@ -71,7 +71,7 @@ When a token position is chosen for masking (15% of tokens):
 
 NSP is a binarized next sentence prediction task. During pre-training, for each example, 50% of the time sentence B is the actual next sentence that follows sentence A (labeled as `IsNext`), and 50% of the time it is a random sentence from the corpus (labeled as `NotNext`). The `[CLS]` token's final hidden state is then used to predict whether the sentences are `IsNext` or `NotNext`.
 
-**Note on our code:** In our implementation, we primarily focus on the Masked Language Model (MLM) as the objective for pre-training.
+**Note on my code:** In my implementation, I primarily focus on the Masked Language Model (MLM) as the objective for pre-training.
 
 ## Pre-training Data
 
@@ -80,7 +80,7 @@ The original BERT models were pre-trained on a massive amount of text data:
 * BooksCorpus (800M words)
 * English Wikipedia (2,500M words)
 
-**Note on our code:** In our implementation, we used [DESCRIBE_YOUR_DATASET_HERE].
+**Note on my code:** In my implementation, I used [---].
 
 ## Getting Started
 
