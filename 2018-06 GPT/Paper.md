@@ -24,7 +24,7 @@ The training procedure consists of two main steps:
 1.  **Pre-training:** This first stage involves learning a high-capacity language model on a large corpus of text.
 2.  **Fine-tuning:** In the fine-tuning stage, the pre-trained model is adapted to a discriminative task using labeled data.
 
-**Note on our code:** In this repository, we focus specifically on the **Pre-training** phase of the model.
+**Note on my code:** In this repository, I focus specifically on the **Pre-training** phase of the model.
 
 ## Model Architecture
 
@@ -41,7 +41,10 @@ The authors of the GPT paper chose a **Decoder-only Transformer architecture**. 
 * **Max Learning Rate:** 2.5e-4 (Learning rate was increased linearly from zero over the first 2000 updates and then annealed to 0 using a cosine schedule.)
 * **Positional Embeddings:** Learned position embeddings are used instead of the sinusoidal version proposed in the original Transformer work.
 
-### Our Implemented Model:
+### MY Implemented Model:
+
+For demonstration and learning purposes, my code implements and trains a much smaller version of GPT:
+
 * **Number of Decoder-only Transformer Blocks (L):** 
 * **Number of Dimensions of Embedding Vector:** 
 * **Hidden Dimensions of Feed-Forward Network:** 
