@@ -1,6 +1,3 @@
-Here's the Markdown code for your `README.md` file, incorporating the summary you provided. I've left placeholders for the details of your "very small model" and the pre-training data used in your code.
-
-```markdown
 # BERT: Bidirectional Encoder Representations from Transformers (Paper Summary & Code)
 
 This repository provides a summary of the groundbreaking paper "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding" and accompanies it with a PyTorch implementation of a small BERT model.
@@ -88,5 +85,3 @@ The original BERT models were pre-trained on a massive amount of text data:
 ## Getting Started
 
 [Add instructions on how to run your code, e.g., installation, data preparation, training, etc.]
-
-```
