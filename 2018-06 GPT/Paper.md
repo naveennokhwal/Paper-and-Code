@@ -1,30 +1,71 @@
-Unlabeled text corpora are abundant, labeled data for learning these specific tasks is scarce, making it challenging for discriminatively trained models to perform adequately. Generative Pre-Training of a language model on a diverse corpus of unlabeled text allows model to leverage linguistic information from unlabeled data that provide a valuable alternative to gathering more annotation, which can be time-consuming and expensive. 
+# GPT: Generative Pre-Training (Paper Summary & Code)
 
-Challenges in leverage linguistic information from unlabeled text data:
-    1. what type of optimization objectives are most effective at learning text representations that are useful for transfer?
-        There are different optimization objectives exists: language modeling, machine translation, and discourse coherence.
-    
-    2. There is no consensus on the most effective way to transfer these learned representations to the target task.
-        Existing techniques involve a combination of making task-specific changes to the model architecture, using intricate learning schemes and adding auxiliary learning objectives.
+This repository provides a summary of the influential paper "Improving Language Understanding by Generative Pre-Training" and accompanies it with a PyTorch implementation focused on the pre-training phase of a Generative Pre-trained Transformer (GPT) model.
 
-In this paper, Author introduced semi-supervised approach for language understanding tasks using a combination of "unsupervised pre-training and supervised fine-tuning". The goal is to learn a universal representation that transfers with little adaptation to a wide range of tasks. they use a "Language Modeling Objective" on the unlabeled data to learn the initial parameters of a neural network model. Subsequently, they adapt these parameters to a target task using the corresponding supervised objective. This setup does not require these target tasks to be in the same domain as the unlabeled corpus. 
+## Introduction to GPT
 
-Training procedure consist two steps: 
-    1. Pre-training:  This first stage is learning a high-capacity language model on a large corpus of text
-    2. Fine-tuning:  fine-tuning stage, where we adapt the model to a discriminative task with labeled data\
+The paper "Improving Language Understanding by Generative Pre-Training" addresses the challenge of scarcity of labeled data for specific language understanding tasks, despite the abundance of unlabeled text corpora. It proposes a semi-supervised approach where a language model is pre-trained on a diverse corpus of unlabeled text. This pre-training allows the model to leverage rich linguistic information from the unlabeled data, offering a valuable and less resource-intensive alternative to gathering extensive annotations.
 
-Model Architecture: Authors choose Decoder-only Transformer architecture. This model choice provides us with a more structured memory for handling long-term dependencies in text.
-            Number of Decoder-only transformer blocks(L) = 12
-            Number of dimensions of embedding vector = 768
-            Hidden dimensions of feed-forward network = 3072
-            Number of self attention heads(A) = 12
-            Optimizer: Adam
-            Activation function: Gaussian Error Linear Unit (GELU)
-            max learning rate = 2.5e-4 (The learning rate was increased linearly from zero over the first 2000 updates and annealed to 0 using a cosine schedule.)
+### Challenges Addressed:
 
-Input Representation:
-    Using Byte-pair Encoding (BPE), raw text is converted into tokens. These tokens are then converted into embeddings and postional embedding is also added to these embedding.
-            h0 = U*W_e + W_p
-            where, U = (u_-k, ..., u_-1) is the context vector of tokens, W_e is the token embedding matrix, and W_p is the position embedding matrix.
+The authors identify two key challenges in effectively leveraging linguistic information from unlabeled text data:
 
-Unsupervise pre-training dataset: BooksCorpus dataset
+1.  **Optimization Objectives:** Determining the most effective optimization objectives for learning text representations that are useful for transfer. Various objectives exist, such as language modeling, machine translation, and discourse coherence.
+2.  **Transfer Mechanisms:** The lack of consensus on the most effective way to transfer these learned representations to target tasks. Existing techniques often involve task-specific architectural changes, intricate learning schemes, and additional auxiliary learning objectives, which can be complex.
+
+### Semi-supervised Approach
+
+To overcome these challenges, the paper introduces a semi-supervised approach combining "unsupervised pre-training and supervised fine-tuning." The core idea is to learn a universal representation that transfers with minimal adaptation to a wide range of tasks. They utilize a "Language Modeling Objective" on unlabeled data to learn the initial parameters of a neural network model. Subsequently, these pre-trained parameters are adapted to a target task using its corresponding supervised objective. This setup is flexible and does not require the target tasks to be in the same domain as the unlabeled corpus.
+
+## Training Procedure
+
+The training procedure consists of two main steps:
+
+1.  **Pre-training:** This first stage involves learning a high-capacity language model on a large corpus of text.
+2.  **Fine-tuning:** In the fine-tuning stage, the pre-trained model is adapted to a discriminative task using labeled data.
+
+**Note on our code:** In this repository, we focus specifically on the **Pre-training** phase of the model.
+
+## Model Architecture
+
+The authors of the GPT paper chose a **Decoder-only Transformer architecture**. This choice provides a more structured memory, particularly effective for handling long-term dependencies within text.
+
+### Architecture Details:
+
+* **Number of Decoder-only Transformer Blocks (L):** 12
+* **Number of Dimensions of Embedding Vector:** 768
+* **Hidden Dimensions of Feed-Forward Network:** 3072
+* **Number of Self-Attention Heads (A):** 12
+* **Optimizer:** Adam
+* **Activation Function:** Gaussian Error Linear Unit (GELU)
+* **Max Learning Rate:** 2.5e-4 (Learning rate was increased linearly from zero over the first 2000 updates and then annealed to 0 using a cosine schedule.)
+* **Positional Embeddings:** Learned position embeddings are used instead of the sinusoidal version proposed in the original Transformer work.
+
+## Input Representation
+
+Raw text is converted into tokens using **Byte-pair Encoding (BPE)**. These tokens are then converted into embeddings, and positional embeddings are added to them to form the final input representation for the decoder-only blocks.
+
+The input representation for the first decoder block ($h_0$) is formulated as:
+
+$h_0 = U \cdot W_e + W_p$
+
+Where:
+* $U = (u_{-k}, \dots, u_{-1})$ is the context vector of tokens.
+* $W_e$ is the token embedding matrix.
+* $W_p$ is the position embedding matrix.
+* $h_0$ is the final embedding entering the first decoder block.
+
+## Unsupervised Pre-training Dataset
+
+The GPT model was pre-trained on the **BooksCorpus dataset**.
+
+## Getting Started
+
+[Add instructions on how to run your code, e.g., installation, data preparation, training, etc.]
+
+## References
+
+* **Improving Language Understanding by Generative Pre-Training**
+    * Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever
+    * OpenAI
+    * [Paper Link (OpenAI Blog Post)](https://openai.com/research/language-unsupervised) (Note: This paper was initially released as a blog post by OpenAI. The closest widely cited "paper" is the one often associated with the model.)
