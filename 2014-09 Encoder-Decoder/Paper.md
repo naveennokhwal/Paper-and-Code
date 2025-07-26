@@ -90,6 +90,4 @@ The models were trained on a subset of the **WMT'14 English to French dataset**.
     * Ilya Sutskever, Oriol Vinyals, Quoc V. Le
     * Google
     * [arXiv:1409.3215](https://arxiv.org/abs/1409.3215)
-    * [Published in NeurIPS 2014](https://proceedings.neurips.cc/paper_files/paper/2014/file/a14ac55a4f27472c85028eb1c78417dd-Paper.pdf)
-
-```
+    * [Published in NeurIPS 2014](https://papers.nips.cc/paper_files/paper/2014/file/5a18e133cbf9f257297f410bb7eca942-Paper.pdf)
